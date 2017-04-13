@@ -14,7 +14,6 @@ public class ProjectPanel extends JPanel
 	private JTextArea textArea;
 	private JButton firstButton;
 	private JTextField textField;
-	
 	private Random generateNumber;
 	
 	public ProjectPanel(ProjectController baseController)
@@ -25,7 +24,6 @@ public class ProjectPanel extends JPanel
 		textArea = new JTextArea(5, 25);
 		firstButton = new JButton("Guess!");
 		textField = new JTextField(25);
-		
 		generateNumber = new Random();
 			
 		setupLayout();
@@ -64,17 +62,16 @@ public class ProjectPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				int computerNumber = generateNumber.nextInt(10) + 1;
+				int computerGuess = generateNumber.nextInt(10) + 1;
 				int userGuess = Integer.parseInt(textField.getText());
 				
-				if(computerNumber == userGuess)
+				if(computerGuess == userGuess)
 				{
 					textArea.setText("Congratulations! You won!\n");
-					
 				}
 				else
 				{
-					textArea.setText("You guessed: " + userGuess + "\n" + "The computer guessed: " + computerNumber);
+					textArea.setText("You guessed: " + userGuess + "\n" + "The computer guessed: " + computerGuess);
 					textField.setText("");
 				}
 			}
