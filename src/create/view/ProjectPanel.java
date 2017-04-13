@@ -5,6 +5,7 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 public class ProjectPanel extends JPanel
 {
@@ -14,6 +15,8 @@ public class ProjectPanel extends JPanel
 	private JButton firstButton;
 	private JTextField textField;
 	
+	private Random generateNumber;
+	
 	public ProjectPanel(ProjectController baseController)
 	{
 		super();
@@ -22,6 +25,8 @@ public class ProjectPanel extends JPanel
 		textArea = new JTextArea(5, 25);
 		firstButton = new JButton("Guess!");
 		textField = new JTextField(25);
+		
+		generateNumber = new Random();
 			
 		setupLayout();
 		setupPanel();
@@ -59,11 +64,19 @@ public class ProjectPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				String userGuess = textField.getText();
-				String botResponse = baseController.useChatbotCheckers(userGuess);
+				int computerNumber = generateNumber.nextInt(10) + 1;
+				int userGuess = Integer.parseInt(textField.getText());
 				
-				textArea.setText("You guessed: " + userGuess + "\n" + "The computer guessed: " + botResponse);
-				textField.setText("");
+				if(computerNumber == userGuess)
+				{
+					textArea.setText("Congratulations! You won!\n");
+					
+				}
+				else
+				{
+					textArea.setText("You guessed: " + userGuess + "\n" + "The computer guessed: " + computerNumber);
+					textField.setText("");
+				}
 			}
 		});
 	}

@@ -17,17 +17,17 @@ public class ProjectController
 
 	public void start()
 	{
-		String response = projectView.collectResponse("Guess a number between 1-10!");
-		
-		if(response.equals("10"))
-		{
-			projectView.displayMessage("Congratulations! You won!");
-			
-		}
-		else
-		{
-			projectView.displayMessage("You are defeated...");
-		}
+		//String response = projectView.collectResponse("Guess a number between 1-10!");
+		//
+		//if(response.equals("10"))
+		//{
+		//	projectView.displayMessage("Congratulations! You won!");
+		//	
+		//}
+		//else
+		//{
+		//	projectView.displayMessage("You are defeated...");
+		//}
 	}
 	
 }

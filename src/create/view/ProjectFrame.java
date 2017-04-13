@@ -22,10 +22,12 @@ public class ProjectFrame extends JFrame
 	//Sets the parameters for the frame
 	private void setupFrame()
 	{
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setContentPane(basePanel);
 		this.setTitle("Guessing Game");
 		this.setSize(new Dimension(600, 400));
 		this.setResizable(false);
 		this.setVisible(true);
+		
 	}
 }
