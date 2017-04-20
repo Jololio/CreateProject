@@ -76,6 +76,25 @@ public class ProjectPanel extends JPanel
 				}
 			}
 		});
+		
+		textField.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent enter)
+			{
+				int computerGuess = generateNumber.nextInt(10) + 1;
+				int userGuess = Integer.parseInt(textField.getText());
+				
+				if(computerGuess == userGuess)
+				{
+					textArea.setText("Congratulations! You won!\n");
+				}
+				else
+				{
+					textArea.setText("You guessed: " + userGuess + "\n" + "The computer guessed: " + computerGuess);
+					textField.setText("");
+				}
+			}
+		});
 	}
 	
 	
